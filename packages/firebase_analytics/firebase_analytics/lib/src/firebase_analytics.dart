@@ -99,7 +99,7 @@ class FirebaseAnalytics extends FirebasePluginPlatform {
   /// [1]: https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Event
   Future<void> logEvent({
     required String name,
-    Map<String, Object?>? parameters,
+    Map<String, Object>? parameters,
     AnalyticsCallOptions? callOptions,
   }) async {
     _logEventNameValidation(name);
