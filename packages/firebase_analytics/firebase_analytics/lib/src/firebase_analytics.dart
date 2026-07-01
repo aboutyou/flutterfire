@@ -86,8 +86,8 @@ class FirebaseAnalytics extends FirebasePlugin {
   /// The map of event [parameters]. Passing null indicates that the event has
   /// no parameters. Parameter names can be up to 40 characters long and must
   /// start with an alphabetic character and contain only alphanumeric
-  /// characters and underscores. String, long and double param types are
-  /// supported. String parameter values can be up to 100 characters long. The
+  /// characters and underscores. Any Object can be used as parameter value.
+  /// String parameter values can be up to 100 characters long. The
   /// "firebase_", "google_" and "ga_" prefixes are reserved and should not be
   /// used for parameter names.
   ///
@@ -104,9 +104,6 @@ class FirebaseAnalytics extends FirebasePlugin {
     AnalyticsCallOptions? callOptions,
   }) async {
     _logEventNameValidation(name);
-
-    _assertParameterTypesAreCorrect(parameters);
-    _assertItemsParameterTypesAreCorrect(items);
 
     final Map<String, Object>? effectiveParameters;
     if (items != null) {
